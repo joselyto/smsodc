@@ -3,7 +3,8 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:smsodc/utils/constants.dart';
 
-import '../Models/messageModel.dart';
+import '../Models/ConversationModel.dart';
+import '../Models/MessagesModel.dart';
 import '../utils/constantsData.dart';
 
 class MessageODC extends StatefulWidget {
@@ -39,26 +40,33 @@ class _MessageODCState extends State<MessageODC> {
       elevation: 0,
       leading: IconButton(onPressed: (){}, icon: Icon(Icons.message_outlined)),
       actions: [
-        IconButton(onPressed: (){}, icon: Icon(Icons.list_alt))
+        IconButton(onPressed: (){
+
+        }, icon: Icon(Icons.list_alt))
       ],
     );
   }
 
   Widget _body(){
-    return ListView.builder(
+    return ListView(
+      children: [],
+    );
+
+      /*ListView.builder(
       itemCount: ConstanteData.fakeFideleList.length,
       itemBuilder: (ctx, i){
         var fidele = ConstanteData.fakeFideleList[i];
-        var mes = MessageModele.fromJson(fidele);
+        var mes = MessageModel.fromJson(fidele);
         // return Text("${f.nom}");
         return ListTile(
           title: Text("${mes.nom}"),
           subtitle: Text("${mes.messages}"),
           trailing: Icon(Icons.more_horiz),
-          leading: mes.image != null ? Image.asset(mes.image!) : Icon(Icons.error)
+          leading: mes.image != null ? Image.asset(mes.image!) : Icon(Icons.error),
+
         );
       }
-    );
+    );*/
   }
 
   
